@@ -19,6 +19,13 @@ func TestAddf(t *testing.T) {
 	}
 }
 
+func TestAddf32(t *testing.T) {
+	n := Addf32([]float32{2.1, 3.2, 5.3, 7.4, 8.5}...)
+	if n != 26.5 {
+		t.Error("got", n, "expected", 26.5)
+	}
+}
+
 func ExampleAddi() {
 	fmt.Println(Addi([]int{2, 3, 5, 7}...))
 	//Output:
@@ -26,6 +33,11 @@ func ExampleAddi() {
 }
 func ExampleAddf() {
 	fmt.Println(Addf([]float64{2.1, 3.2, 5.3, 7.4, 8.5}...))
+	//Output:
+	//26.5
+}
+func ExampleAddf32() {
+	fmt.Println(Addf32([]float32{2.1, 3.2, 5.3, 7.4, 8.5}...))
 	//Output:
 	//26.5
 }
@@ -40,5 +52,12 @@ func BenchmarkAddf(b *testing.B) {
 	c := []float64{2.1, 3.2, 5.3, 7.4}
 	for i := 0; i < b.N; i++ {
 		Addf(c...)
+	}
+}
+
+func BenchmarkAddf32(b *testing.B) {
+	c := []float32{2.1, 3.2, 5.3, 7.4}
+	for i := 0; i < b.N; i++ {
+		Addf32(c...)
 	}
 }
