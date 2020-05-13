@@ -6,6 +6,12 @@ package sub
 //integers passed as arguement
 func Subi(xi ...int) int {
 	d := 0
+	if xi == nil {
+		return 0
+	}
+	if len(xi) == 1 {
+		return xi[0]
+	}
 	for _, v := range xi {
 		d -= v
 	}
@@ -16,6 +22,12 @@ func Subi(xi ...int) int {
 //decimals passed as arguments.
 func Subf(xf ...float64) float64 {
 	var d float64
+	if xf == nil {
+		return 0.0
+	}
+	if len(xf) == 1 {
+		return xf[0]
+	}
 	for _, v := range xf {
 		d -= v
 	}
@@ -26,6 +38,12 @@ func Subf(xf ...float64) float64 {
 //decimals passed as arguments.
 func Subf32(xf ...float32) float32 {
 	var d float32
+	if xf == nil {
+		return 0.0
+	}
+	if len(xf) == 1 {
+		return xf[0]
+	}
 	for _, v := range xf {
 		d -= v
 	}
