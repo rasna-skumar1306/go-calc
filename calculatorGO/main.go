@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	s := []int{}
+	s := []int{-1, -2, -2, -4}
 	f := []float64{2.1, 3.2, 5.3, 7.4, 8.5}
 	ff := []float32{2.1, 3.2, 5.3, 7.4, 8.5}
 	v := add.Addi(s...)
@@ -25,5 +25,7 @@ func main() {
 	}
 	fmt.Println(v, fv, sc, sf, sf64, si, df, df64)
 	fmt.Printf("%T,%T,%T", sc, sf, sf64)
-
+	fmt.Println(sc)
+	fmt.Println(sf, errf)
+	fmt.Println(sf64, errff)
 }
