@@ -9,23 +9,15 @@ import (
 //Diffi calculates the difference between each consecutive element of []int
 //and returns the value as []int of difference elements
 func Diffi(xi ...int) ([]int, error) {
-	s := make([]int, 15)
-	j := 1
 	if len(xi) == 0 {
-		return []int{0}, errors.New("The array is empty expect atleast one element")
+		return []int{0}, errors.New("no values provided expected at least one element")
 	}
 	if len(xi) == 1 {
 		return xi, nil
 	}
-	for i := 0; i < len(xi); i++ {
-		s[i] = 0
-	}
-	for i := 0; i < len(xi); i++ {
-		s[i] = xi[i] - xi[j]
-		j++
-		if j == len(xi) {
-			break
-		}
+	s := make([]int, len(xi)-1)
+	for i := 0; i < len(xi)-1; i++ {
+		s[i] = xi[i] - xi[i+1]
 	}
 	return s[:len(xi)-1], nil
 }
@@ -40,16 +32,8 @@ func Difff32(xi ...float32) ([]float32, error) {
 	if len(xi) == 1 {
 		return xi, nil
 	}
-	j := 1
-	for i := 0; i < len(xi); i++ {
-		s[i] = 0
-	}
-	for i := 0; i < len(xi); i++ {
-		s[i] = xi[i] - xi[j]
-		j++
-		if j == len(xi) {
-			break
-		}
+	for i := 0; i < len(xi)-1; i++ {
+		s[i] = xi[i] - xi[i+1]
 	}
 	return s[:len(xi)-1], nil
 }
@@ -64,16 +48,8 @@ func Difff64(xi ...float64) ([]float64, error) {
 	if len(xi) == 1 {
 		return xi, nil
 	}
-	j := 1
-	for i := 0; i < len(xi); i++ {
-		s[i] = 0
-	}
-	for i := 0; i < len(xi); i++ {
-		s[i] = xi[i] - xi[j]
-		j++
-		if j == len(xi) {
-			break
-		}
+	for i := 0; i < len(xi)-1; i++ {
+		s[i] = xi[i] - xi[i+1]
 	}
 	return s[:len(xi)-1], nil
 }
